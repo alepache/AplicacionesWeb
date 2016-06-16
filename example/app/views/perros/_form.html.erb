@@ -1,0 +1,32 @@
+<%= form_for(@perro) do |f| %>
+  <% if @perro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
+
+      <ul>
+      <% @perro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :edad %><br>
+    <%= f.text_field :edad %>
+  </div>
+  <div class="field">
+    <%= f.label :raza_id %><br>
+   
+
+<%= collection_select(:perro, :raza_id, @razas, :id, :raza_nombre, prompt: true) %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

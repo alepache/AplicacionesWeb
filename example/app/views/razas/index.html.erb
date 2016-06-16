@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Razas</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Raza nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @razas.each do |raza| %>
+      <tr>
+        <td><%= raza.raza_nombre %></td>
+        <td><%= link_to 'Show', raza %></td>
+        <td><%= link_to 'Edit', edit_raza_path(raza) %></td>
+        <td><%= link_to 'Destroy', raza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Raza', new_raza_path %>
