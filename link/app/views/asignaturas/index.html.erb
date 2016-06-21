@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Asignaturas</h1>
+
+<table border="5">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Profesor</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asignaturas.each do |asignatura| %>
+      <tr>
+        <td><%= asignatura.nombre %></td>
+        <td><%= asignatura.profesor %></td>
+        <td class="btn btn-success"><%= link_to 'Detalles', asignatura %></td>
+        <td class="btn btn-info"><%= link_to 'Editar', edit_asignatura_path(asignatura) %></td>
+        <td class="btn btn-danger"><%= link_to 'Eliminar', asignatura, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Asignatura', new_asignatura_path %>

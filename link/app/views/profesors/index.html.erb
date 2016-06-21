@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Profesores</h1>
+
+<table border="5">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Profesion</th>
+      <th>Direccion</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profesors.each do |profesor| %>
+      <tr>
+        <td><%= profesor.nombre %></td>
+        <td><%= profesor.profesion %></td>
+        <td><%= profesor.direccion %></td>
+        <td class="btn btn-success" ><%= link_to 'Detalles', profesor %></td>
+        <td class="btn btn-info" ><%= link_to 'Editar', edit_profesor_path(profesor) %></td>
+        <td class="btn btn-danger" ><%= link_to 'Eliminar', profesor, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Profesor', new_profesor_path %>
